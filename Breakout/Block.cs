@@ -7,5 +7,11 @@ namespace Breakout
 {
     public class Block : GameObject
     {
+        public static const char SYMBOL = '#';
+
+        public Block()
+        {
+
+        }
     }
 }

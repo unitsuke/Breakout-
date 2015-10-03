@@ -7,9 +7,21 @@ namespace Breakout
 {
     public class Ball : GameObject
     {
-        public Ball() : base()q
-        {
+        public static const char SYMBOL = '@';
 
+        static Point[] direction = { new Point(1,0) };
+
+        //properties
+        public Point BallPoint { get ; set; }
+        public Point Direction { get; set; }
+        public int Damage { get; set; }
+
+        
+        //constructor
+        public Ball(Point point, int damage)
+        {
+            this.BallPoint = point;
+            this.Damage = damage;
         }
     }
 }

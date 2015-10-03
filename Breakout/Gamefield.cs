@@ -34,7 +34,26 @@ namespace Breakout
                 if (gameObject is Ball)
                 {
                     Ball ball = gameObject as Ball;
-                    int nextX = ball.Coordinates.
+                    int nextX = ball.Point.X + ball.Direction.X;
+                    int nextY = ball.Point.Y + ball.Direction.Y;
+
+                    //Check if collide with somethink and change the direction
+                    char nextPosChar = gameBoard[nextX, nextY];
+
+                    switch (nextPosChar)
+                    {
+                        case Block.SYMBOL:
+                            break;
+                        case '=':
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //Delete the previous ball position and draw the new one
+                    Console.SetCursorPosition(ball.Point.X, ball.Point.Y);
+                    Console.Write(" ");
+
                 }
                 else if (gameObject is Player)
                 {

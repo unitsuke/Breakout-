@@ -7,7 +7,7 @@ namespace Breakout
 {
     public abstract class GameObject
     {
-        public Point Coordinates { get; set; }
+        public Point Point { get; set; }
 
         public virtual void Move()
         {
