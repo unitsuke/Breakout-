@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Breakout
 {
-    public class Point
+    public class Point : GameObject
     {
     }
 }

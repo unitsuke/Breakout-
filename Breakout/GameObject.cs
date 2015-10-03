@@ -5,9 +5,11 @@ using System.Text;
 
 namespace Breakout
 {
-    public class Ball : GameObject
+    public abstract class GameObject
     {
-        public Ball() : base()q
+        public Point Coordinates { get; set; }
+
+        public virtual void Move()
         {
 
         }
