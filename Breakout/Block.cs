@@ -9,9 +9,17 @@ namespace Breakout
     {
         public static const char SYMBOL = '#';
 
-        public Block()
-        {
+        //properties
+        public Point BlockPoint { get; set; }
+        public int Life { get; set; }
+        public int Score { get; set; }
 
+        //constructor
+        public Block(Point point,int life, int score)
+        {
+            this.BlockPoint = point;
+            this.Life = life;
+            this.Score = score;
         }
     }
 }

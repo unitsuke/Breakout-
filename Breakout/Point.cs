@@ -5,10 +5,11 @@ using System.Text;
 
 namespace Breakout
 {
-    public class Point : GameObject
+    public class Point
     {
         public int X { get; set; }
         public int Y { get; set; }
+
         public Point(int x,int y)
         {
             this.X = x;
