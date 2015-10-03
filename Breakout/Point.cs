@@ -6,6 +6,7 @@ using System.Text;
 namespace Breakout
 {
     public class Point
+<<<<<<< HEAD
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -14,5 +15,10 @@ namespace Breakout
             this.X = x;
             this.Y = y;
         }
+=======
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+>>>>>>> parent of 5361bb5... point
     }
 }
