@@ -8,13 +8,15 @@ namespace Breakout
     public class Ball
     {
         static char charBall = '@';
-        
+        static Point[] direction = { new Point(1,0)
+                                    ;
+
         //properties
         public Point BallPoint { get ; set; }
         public Point Direction { get; set; }
         public int Damage { get; set; }
 
-
+        
         //constructor
         public Ball(Point point, int damage)
         {
