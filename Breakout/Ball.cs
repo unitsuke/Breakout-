@@ -7,5 +7,11 @@ namespace Breakout
 {
     public class Ball
     {
+        static char charBall = '@';
+        public int Ball { get ; set; }
+        public Ball()
+        {
+
+        }
     }
 }
