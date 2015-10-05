@@ -7,17 +7,16 @@ namespace Breakout
 {
     public class Block : GameObject
     {
-        public static const char SYMBOL = '#';
+        private const string SYMBOL = "#";
 
         //properties
-        public Point BlockPoint { get; set; }
         public int Life { get; set; }
         public int Score { get; set; }
 
         //constructor
-        public Block(Point point,int life, int score)
+        public Block(Point point, int life, int score)
+            : base(point, SYMBOL)
         {
-            this.BlockPoint = point;
             this.Life = life;
             this.Score = score;
         }
