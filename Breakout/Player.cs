@@ -8,7 +8,7 @@ namespace Breakout
     public class Player : GameObject
     {
         public string username { get; set; }
-        public string sumbol { get; set; }
+        public string symbol { get; set; }
         public int lifes { get; set; }
         public int moves { get; set; }
         public Point point { get; set; }
@@ -16,7 +16,7 @@ namespace Breakout
         public Player(string name)
         {
             this.username = name;
-            this.sumbol = "====";
+            this.symbol = "====";
             this.lifes = 3;
         }
     }
