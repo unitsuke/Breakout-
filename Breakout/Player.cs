@@ -7,17 +7,16 @@ namespace Breakout
 {
     public class Player : GameObject
     {
-        public string username { get; set; }
-        public string sumbol { get; set; }
-        public int lifes { get; set; }
-        public int moves { get; set; }
-        public Point point { get; set; }
+        private const string SYMBOL = "=";
 
-        public Player(string name)
+        public string Username { get; set; }
+        public int Lifes { get; set; }
+        public int Moves { get; set; }
+
+        public Player(Point point, string name) : base(point, SYMBOL)
         {
-            this.username = name;
-            this.sumbol = "====";
-            this.lifes = 3;
+            this.Username = name;
+            this.Lifes = 3;
         }
     }
 }
