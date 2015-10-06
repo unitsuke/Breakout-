@@ -41,6 +41,7 @@ namespace Breakout
         /// </summary>
         private void InitializeBoard()
         {
+            
             this.gameBoard = new string[this.Height, this.Width];
 
             foreach (var gameObj in this.GameObjects)
@@ -55,7 +56,7 @@ namespace Breakout
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write("|");
-                Console.SetCursorPosition(this.Width, i);
+                Console.SetCursorPosition(this.Width - 1, i);
                 Console.Write("|");
             }
         }

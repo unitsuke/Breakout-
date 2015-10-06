@@ -11,7 +11,7 @@ namespace Breakout
 
         public Engine()
         {
-            this.GameField = new Gamefield(55, 20, new Ball(new Point(5, 5), 1), new Player(new Point(5, 5), "test"));
+            this.GameField = new Gamefield(50, 20, new Ball(new Point(5, 5), 1), new Player(new Point(5, 5), "test"));
         }
 
         /// <summary>
