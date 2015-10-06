@@ -11,7 +11,10 @@ namespace Breakout
 
         public Engine()
         {
-            this.GameField = new Gamefield(50, 20, new Ball(new Point(5, 5), 1), new Player(new Point(5, 5), "test"));
+            int fieldWidth = 50;
+            int fieldHeight = 20;
+            this.GameField = new Gamefield(fieldWidth, fieldHeight, new Ball(new Point(5, 5), 1),
+                new Player(new Point(fieldWidth/2 - 2, fieldHeight - 2), "test"));
         }
 
         /// <summary>

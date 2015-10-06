@@ -13,6 +13,7 @@ namespace Breakout
         public bool IsAlive { get; set; }
 
         private List<GameObject> GameObjects { get; set; }
+        private List<Block> blocks { get; set; }
         private Player Player { get; set; }
         private Ball Ball { get; set; }
 
@@ -30,9 +31,15 @@ namespace Breakout
             {
                 this.Player,
                 this.Ball,
-                new Block(new Point(1,1), 1, 10),
             };
 
+            //blocks
+            int numOfBlocks = 20;
+            for (int b = 0; b < numOfBlocks; b++)
+            {
+                GameObjects.Add(new Block(
+                    new Point(this.Height - 1, (this.Width - numOfBlocks) / 2 + b), 1, 100));
+            }
             InitializeBoard();
         }
         private void InitializeBoard()
@@ -44,8 +51,8 @@ namespace Breakout
             {
                 int objX = gameObj.Point.X;
                 int objY = gameObj.Point.Y;
-
-                this.gameBoard[objX, objY] = gameObj.Symbol;
+                // NEEDS FIX
+                //this.gameBoard[objX, objY] = gameObj.Symbol;
             }
 
             for (int i = 0; i < this.Height; i++)
@@ -56,13 +63,9 @@ namespace Breakout
                 Console.Write("|");
             }
             
-            Player player = new Player(new Point(this.Width /2 -2 ,1),"stancho");
-            //display player
-            for (int i = 0; i < Player.LENGHT; i++)
-            {
-                Console.SetCursorPosition(player.Point.X + i, player.Point.Y);
-                Console.Write(Player.Symbol);
-            }
+            //Player player = new Player(new Point(this.Width /2 -2 ,1),"stancho");
+            
+            
         }
 
         public void Run()
@@ -144,7 +147,9 @@ namespace Breakout
                         Console.Write(Player.Symbol);
                     }
                 }
+                  
             }
+        
         }
     }
 }
