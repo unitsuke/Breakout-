@@ -38,7 +38,7 @@ namespace Breakout
             for (int b = 0; b < numOfBlocks; b++)
             {
                 GameObjects.Add(new Block(
-                    new Point(this.Height - 1, (this.Width - numOfBlocks) / 2 + b), 1, 100));
+                    new Point((this.Width-numOfBlocks)/2 + b, 1), 1, 100));
             }
             InitializeBoard();
         }
@@ -62,8 +62,6 @@ namespace Breakout
                 Console.SetCursorPosition(this.Width - 1, i);
                 Console.Write("|");
             }
-            
-            //Player player = new Player(new Point(this.Width /2 -2 ,1),"stancho");
             
             
         }
@@ -146,6 +144,11 @@ namespace Breakout
                         Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
                         Console.Write(Player.Symbol);
                     }
+                }
+                else if(gameObject is Block)
+                {
+                    Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
+                    Console.Write(gameObject.Symbol);
                 }
                   
             }
