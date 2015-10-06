@@ -7,14 +7,8 @@ namespace Breakout
 {
     public class Ball : GameObject
     {
-<<<<<<< HEAD
-
-        public const char SYMBOL = '@';
-
-=======
         private const string SYMBOL = "@";
 
->>>>>>> origin/master
         static Random rnd = new Random();
         int randDirection = rnd.Next(0, 4); // returns 0, 1 ,2 or 3
         static Point[] direction =  { 
