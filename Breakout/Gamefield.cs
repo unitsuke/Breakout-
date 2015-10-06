@@ -35,10 +35,6 @@ namespace Breakout
 
             InitializeBoard();
         }
-
-        /// <summary>
-        /// TODO: not working
-        /// </summary>
         private void InitializeBoard()
         {
             
@@ -113,14 +109,24 @@ namespace Breakout
                     }
 
                     //Delete the previous ball position and draw the new one
-                    Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
-                    Console.Write(" ");
+                    //fixed : if not on the most right
+                    //TO BE FIXED : Blinking wall on the right
+                    if (this.Ball.Point.X != this.Width )
+                    {
+                        Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
+                        Console.Write(" ");
+                    }
 
                     this.Ball.Point.X = nextX;
                     this.Ball.Point.Y = nextY;
 
-                    Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
-                    Console.Write(this.Ball.Symbol);
+                    if (this.Ball.Point.X != this.Width)
+                    {
+                        Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
+                        Console.Write(this.Ball.Symbol);
+                    }
+                    
+                    
 
                 }
                 else if (gameObject is Player)
