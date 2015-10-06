@@ -8,6 +8,7 @@ namespace Breakout
     public class Player : GameObject
     {
         private const string SYMBOL = "=";
+        public const int LENGHT = 4;
 
         public string Username { get; set; }
         public int Lifes { get; set; }

@@ -55,6 +55,14 @@ namespace Breakout
                 Console.SetCursorPosition(this.Width - 1, i);
                 Console.Write("|");
             }
+            
+            Player player = new Player(new Point(this.Width /2 -2 ,1),"stancho");
+            //display player
+            for (int i = 0; i < Player.LENGHT; i++)
+            {
+                Console.SetCursorPosition(player.Point.X + i, player.Point.Y);
+                Console.Write(Player.Symbol);
+            }
         }
 
         public void Run()
@@ -110,8 +118,7 @@ namespace Breakout
 
                     //Delete the previous ball position and draw the new one
                     //fixed : if not on the most right
-                    //TO BE FIXED : Blinking wall on the right
-                    if (this.Ball.Point.X != this.Width )
+                    if (this.Ball.Point.X != this.Width - 1 )
                     {
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(" ");
@@ -120,18 +127,22 @@ namespace Breakout
                     this.Ball.Point.X = nextX;
                     this.Ball.Point.Y = nextY;
 
-                    if (this.Ball.Point.X != this.Width)
+                    if (this.Ball.Point.X != this.Width - 1)
                     {
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
                     
-                    
-
                 }
                 else if (gameObject is Player)
                 {
-
+                    
+                    //display player : NOT WORKING CORRECTLY
+                    for (int i = 0; i < Player.LENGHT; i++)
+                    {
+                        Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
+                        Console.Write(Player.Symbol);
+                    }
                 }
             }
         }
