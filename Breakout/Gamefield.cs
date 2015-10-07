@@ -44,7 +44,9 @@ namespace Breakout
         }
         private void InitializeBoard()
         {
-            
+            Console.SetWindowSize(this.Width , this.Height );
+            Console.SetBufferSize(this.Width, this.Height);
+
             this.gameBoard = new string[this.Height, this.Width];
 
             foreach (var gameObj in this.GameObjects)
