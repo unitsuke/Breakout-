@@ -43,13 +43,19 @@ namespace Breakout
             Console.SetBufferSize(this.Width, this.Height);
             
             //blocks
-            int numOfBlocks = 20;
-            for (int b = 0; b < numOfBlocks; b++)
+            int numOfRowOneBlocks = 30;
+            for (int b = 0; b < numOfRowOneBlocks; b++)
             {
                 GameObjects.Add(new Block(
 
-                    new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
-                
+                    new Point((this.Width - numOfRowOneBlocks) / 2 + b, 1), 1, 100));
+            }
+            int numOfRowTwoBlocks = 20;
+            for (int b = 0; b < numOfRowTwoBlocks; b++)
+            {
+                GameObjects.Add(new Block(
+
+                    new Point((this.Width - numOfRowTwoBlocks) / 2 + b, 2), 1, 100));
             }
 
             //print block
@@ -78,6 +84,7 @@ namespace Breakout
             //print new player
             for (int i = 0; i < Player.LENGHT; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
                 Console.Write(Player.Symbol);
             }
@@ -97,6 +104,7 @@ namespace Breakout
                 {
                     IsAlive = false;
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.SetCursorPosition(this.Width/2 - 10 , 5);
                     Console.WriteLine("GAME OVER, YOU ARE DEAD");
                 }
@@ -104,6 +112,7 @@ namespace Breakout
                 {
                     IsAlive = false;
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.SetCursorPosition(this.Width / 2 - 10, 5);
                     Console.WriteLine("GAME OVER, YOU WON");
 
@@ -118,7 +127,7 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
-                    //Thread.Sleep(15);
+                    Thread.Sleep(15);
                     
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
@@ -139,7 +148,6 @@ namespace Breakout
                             numberOfBlocks--;
                             break;
                         case "=":
-
                             this.Ball.Direction.Y *= -1;
                             break;
                         default:
@@ -179,6 +187,7 @@ namespace Breakout
 
                     if (this.Ball.Point.X != this.Width - 1)
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
@@ -220,6 +229,7 @@ namespace Breakout
                         //print new player
                         for (int i = 0; i < Player.LENGHT; i++)
                         {
+                            Console.ForegroundColor = ConsoleColor.Blue;
                             Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
                             Console.Write(Player.Symbol);
                         }
