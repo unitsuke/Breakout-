@@ -146,8 +146,8 @@ namespace Breakout
                     }
                     if (nextX == this.Player.Point.X || nextX > this.Player.Point.Y)
                     {
-                        this.Ball.Direction.Y *= -1;
-                        nextX = Ball.Point.Y + this.Ball.Direction.Y;
+                        this.Ball.Direction.X *= -1;
+                        nextX = Ball.Point.X + this.Ball.Direction.X;
                     }
                     //Delete the previous ball position and draw the new one
                     //fixed : if not on the most right
