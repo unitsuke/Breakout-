@@ -122,20 +122,27 @@ namespace Breakout
 
                             this.Ball.Direction.Y *= -1;
                             break;
-                        default:
+                        default: 
                             break;
                     }
-
+                   
                     if (nextX == 0 || nextX > this.Width - 1)
                     {
                         this.Ball.Direction.X *= -1;
                         nextX = Ball.Point.X + this.Ball.Direction.X;
                     }
-
-                    if (nextY == -1 || nextY > this.Height - 1)
+                    //hits-top
+                    if (nextY == -1 )
                     {
                         this.Ball.Direction.Y *= -1;
                         nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
+                    }
+                    //hits=bottom
+                    if (nextY > this.Height - 1)
+                    {
+                        this.Ball.Direction.Y *= -1;
+                        nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
+                        this.Player.lifes--; 
                     }
 
                     //Delete the previous ball position and draw the new one
@@ -160,6 +167,7 @@ namespace Breakout
                     {
                         this.Ball.Direction.Y *= -1;
                     }
+                   
                 }
                 else if (gameObject is Player)
                 {
