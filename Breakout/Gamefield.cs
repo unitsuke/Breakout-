@@ -11,13 +11,14 @@ namespace Breakout
         public int Width { get; set; }
         public int Height { get; set; }
         public bool IsAlive { get; set; }
-
         private List<GameObject> GameObjects { get; set; }
         private List<Block> blocks { get; set; }
         private Player Player { get; set; }
         private Ball Ball { get; set; }
 
         public string[,] gameBoard;
+        
+        public int NumBlocks = 20;
 
         public Gamefield(int width, int height, Ball ball, Player player)
         {
@@ -26,14 +27,12 @@ namespace Breakout
             this.Ball = ball;
             this.Player = player;
             this.IsAlive = true;
-
             this.GameObjects = new List<GameObject>()
             {
                 this.Player,
                 this.Ball,
             };
 
-            //
 
             
             InitializeBoard();
@@ -88,15 +87,33 @@ namespace Breakout
 
         public void Run()
         {
+
+
             while (this.IsAlive)
             {
                 Update();
                 Thread.Sleep(25);
+                if (this.Player.Lifes == 0)
+                {
+                    IsAlive = false;
+                    Console.Clear();
+                    Console.SetCursorPosition(this.Width/2 - 10 , 5);
+                    Console.WriteLine("GAME OVER, YOU ARE DEAD");
+                }
+                if (this.NumBlocks == 0)
+                {
+                    IsAlive = false;
+                    Console.Clear();
+                    Console.SetCursorPosition(this.Width / 2 - 10, 5);
+                    Console.WriteLine("GAME OVER, YOU WON");
+
+                }
             }
         }
-
         public void Update()
         {
+            int numberOfBlocks = 20;
+
             foreach (GameObject gameObject in this.GameObjects)
             {
                 if (gameObject is Ball)
@@ -119,7 +136,8 @@ namespace Breakout
                     switch (nextPosChar)
                     {
                         case "#":
-
+                            numberOfBlocks--;
+                            break;
                         case "=":
 
                             this.Ball.Direction.Y *= -1;
@@ -133,11 +151,18 @@ namespace Breakout
                         this.Ball.Direction.X *= -1;
                         nextX = Ball.Point.X + this.Ball.Direction.X;
                     }
-
-                    if (nextY == -1 || nextY > this.Height - 1)
+                    //hits top
+                    if (nextY == -1 )
                     {
                         this.Ball.Direction.Y *= -1;
                         nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
+                    }
+                    //hits bottom
+                    if(nextY > this.Height - 1)
+                    {
+                        this.Ball.Direction.Y *= -1;
+                        nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
+                        this.Player.Lifes--;
                     }
 
                     //Delete the previous ball position and draw the new one
