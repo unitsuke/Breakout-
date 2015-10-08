@@ -43,10 +43,6 @@ namespace Breakout
             Console.SetBufferSize(this.Width, this.Height);
             
             //blocks
-<<<<<<< HEAD
-            int numOfBlocks = 30;
-            for (int b = 0; b < numOfBlocks; b++)
-=======
             int numOfRowOneBlocks = 30;
             for (int b = 0; b < numOfRowOneBlocks; b++)
             {
@@ -56,19 +52,11 @@ namespace Breakout
             }
             int numOfRowTwoBlocks = 20;
             for (int b = 0; b < numOfRowTwoBlocks; b++)
->>>>>>> origin/master
             {
+                GameObjects.Add(new Block(
 
-<<<<<<< HEAD
-                    GameObjects.Add(new Block(
-                        new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));    
-                }
-                
-
-=======
                     new Point((this.Width - numOfRowTwoBlocks) / 2 + b, 2), 1, 100));
             }
->>>>>>> origin/master
 
             //print blocks
             foreach (var Block in GameObjects)
@@ -76,6 +64,7 @@ namespace Breakout
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(Block.Point.X, Block.Point.Y);
                 Console.Write(Block.Symbol);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             this.gameBoard = new string[this.Width, this.Height];
 
@@ -140,15 +129,7 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
-<<<<<<< HEAD
-
-                    Thread.Sleep(10);
-
-                    //Thread.Sleep(15);
-
-=======
                     Thread.Sleep(15);
->>>>>>> origin/master
                     
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
@@ -163,13 +144,6 @@ namespace Breakout
                     }
                     catch (IndexOutOfRangeException) { }
 
-<<<<<<< HEAD
-                    //switch (nextPosChar)
-                    //{
-                    //    case "#":
-
-                    //    case "=":
-=======
                     switch (nextPosChar)
                     {
                         case "#":
@@ -181,24 +155,12 @@ namespace Breakout
                         default:
                             break;
                     }
->>>>>>> origin/master
 
-                    //        this.Ball.Direction.Y *= -1;
-                    //        break;
-                    //    default: 
-                    //        break;
-                    //}
-                   
                     if (nextX == 0 || nextX > this.Width - 1)
                     {
-                        this.Ball.Direction.X *= -1; GameObjects.Add(new Block(
-                     new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
+                        this.Ball.Direction.X *= -1;
                         nextX = Ball.Point.X + this.Ball.Direction.X;
                     }
-<<<<<<< HEAD
-                    //hits-top
-                    if (nextY == -1 )
-=======
                     //hits top
                     if (nextY == -1 )
                     {
@@ -207,20 +169,12 @@ namespace Breakout
                     }
                     //hits bottom
                     if(nextY > this.Height - 1)
->>>>>>> origin/master
                     {
                         this.Ball.Direction.Y *= -1;
                         nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
                         this.Player.Lifes--;
                     }
-                    //hits=bottom
-                    if (nextY > this.Height - 1)
-                    {
-                        this.Ball.Direction.Y *= -1;
-                        nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
-                        this.Player.Lifes--; 
-                    }
-                    
+
                     //Delete the previous ball position and draw the new one
                     //fixed : if not on the most right
                     if (this.Ball.Point.X != this.Width - 1)
@@ -239,8 +193,7 @@ namespace Breakout
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
-                   
-                   
+
                 }
                 else if (gameObject is Player)
                 {
@@ -287,7 +240,7 @@ namespace Breakout
                     {
                         
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
-                        
+                        Console.Write(Block.SYMBOL);
 
                     }
 
