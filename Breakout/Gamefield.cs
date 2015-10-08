@@ -58,9 +58,10 @@ namespace Breakout
                     new Point((this.Width - numOfRowTwoBlocks) / 2 + b, 2), 1, 100));
             }
 
-            //print block
+            //print blocks
             foreach (var Block in GameObjects)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.SetCursorPosition(Block.Point.X, Block.Point.Y);
                 Console.Write(Block.Symbol);
             }
@@ -236,6 +237,7 @@ namespace Breakout
                     }
                     else if (gameObject is Block)
                     {
+                        
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
                         Console.Write(Block.SYMBOL);
 
