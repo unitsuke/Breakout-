@@ -44,13 +44,15 @@ namespace Breakout
             Console.SetBufferSize(this.Width, this.Height);
             
             //blocks
-            int numOfBlocks = 20;
+            int numOfBlocks = 30;
             for (int b = 0; b < numOfBlocks; b++)
             {
-                GameObjects.Add(new Block(
 
-                    new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
-            }
+                    GameObjects.Add(new Block(
+                        new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));    
+                }
+                
+
 
             //print block
             foreach (var Block in GameObjects)
@@ -100,7 +102,11 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
+
                     Thread.Sleep(10);
+
+                    //Thread.Sleep(15);
+
                     
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
@@ -115,20 +121,22 @@ namespace Breakout
                     }
                     catch (IndexOutOfRangeException) { }
 
-                    switch (nextPosChar)
-                    {
-                        case "#":
-                        case "=":
+                    //switch (nextPosChar)
+                    //{
+                    //    case "#":
 
-                            this.Ball.Direction.Y *= -1;
-                            break;
-                        default: 
-                            break;
-                    }
+                    //    case "=":
+
+                    //        this.Ball.Direction.Y *= -1;
+                    //        break;
+                    //    default: 
+                    //        break;
+                    //}
                    
                     if (nextX == 0 || nextX > this.Width - 1)
                     {
-                        this.Ball.Direction.X *= -1;
+                        this.Ball.Direction.X *= -1; GameObjects.Add(new Block(
+                     new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
                         nextX = Ball.Point.X + this.Ball.Direction.X;
                     }
                     //hits-top
@@ -142,7 +150,7 @@ namespace Breakout
                     {
                         this.Ball.Direction.Y *= -1;
                         nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
-                        this.Player.lifes--; 
+                        this.Player.Lifes--; 
                     }
                     
                     //Delete the previous ball position and draw the new one
@@ -208,7 +216,8 @@ namespace Breakout
                     else if (gameObject is Block)
                     {
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
-                        Console.Write(Block.SYMBOL);
+                        
+
                     }
 
                 }
