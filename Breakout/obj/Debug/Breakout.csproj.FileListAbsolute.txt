@@ -4,9 +4,3 @@ E:\Softuni\1-Advanced C#\Team Project 3\trunk\Breakout\bin\Debug\Breakout.exe
 E:\Softuni\1-Advanced C#\Team Project 3\trunk\Breakout\bin\Debug\Breakout.pdb
 E:\Softuni\1-Advanced C#\Team Project 3\trunk\Breakout\obj\Debug\Breakout.exe
 E:\Softuni\1-Advanced C#\Team Project 3\trunk\Breakout\obj\Debug\Breakout.pdb
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\bin\Debug\Breakout.exe.config
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\obj\Debug\Breakout.exe
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\obj\Debug\Breakout.pdb
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\bin\Debug\Breakout.exe
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\bin\Debug\Breakout.pdb
-C:\Users\soki\Documents\GitHub\Breakout-\Breakout\obj\Debug\Breakout.csprojResolveAssemblyReference.cache
