@@ -144,11 +144,7 @@ namespace Breakout
                         nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
                         this.Player.lifes--; 
                     }
-                    if (nextX == this.Player.Point.X || nextX > this.Player.Point.Y)
-                    {
-                        this.Ball.Direction.X *= -1;
-                        nextX = Ball.Point.X + this.Ball.Direction.X;
-                    }
+                    
                     //Delete the previous ball position and draw the new one
                     //fixed : if not on the most right
                     if (this.Ball.Point.X != this.Width - 1)
@@ -166,11 +162,7 @@ namespace Breakout
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
-                    if (this.Ball.Point.X == this.Player.Point.X &&
-                        this.Ball.Point.Y == this.Player.Point.Y)
-                    {
-                        this.Ball.Direction.Y *= -1;
-                    }
+                   
                    
                 }
                 else if (gameObject is Player)
