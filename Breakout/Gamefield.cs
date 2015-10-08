@@ -44,7 +44,9 @@ namespace Breakout
         }
         private void InitializeBoard()
         {
-            
+            Console.SetWindowSize(this.Width , this.Height );
+            Console.SetBufferSize(this.Width, this.Height);
+
             this.gameBoard = new string[this.Height, this.Width];
 
             foreach (var gameObj in this.GameObjects)
@@ -109,7 +111,7 @@ namespace Breakout
                     {
                         this.Ball.Direction.X *= -1;
                         nextX = Ball.Point.X + this.Ball.Direction.X;
-                    } 
+                    }
 
                     if (nextY == -1 || nextY > this.Height - 1)
                     {
@@ -119,7 +121,7 @@ namespace Breakout
 
                     //Delete the previous ball position and draw the new one
                     //fixed : if not on the most right
-                    if (this.Ball.Point.X != this.Width - 1 )
+                    if (this.Ball.Point.X != this.Width - 1)
                     {
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(" ");
@@ -133,26 +135,46 @@ namespace Breakout
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
-                    
+
                 }
                 else if (gameObject is Player)
                 {
-                    
-                    //display player : NOT WORKING CORRECTLY
-                    for (int i = 0; i < Player.LENGHT; i++)
+                    //moving player
+
+                    if (Console.KeyAvailable)
                     {
-                        Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
-                        Console.Write(Player.Symbol);
+                        //remove old player
+                        for (int i = 0; i < Player.LENGHT; i++)
+                        {
+                            Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
+                            Console.Write(" ");
+                        }
+                        
+                        //move player cordinates
+                        ConsoleKeyInfo userInput = Console.ReadKey();
+                        if (userInput.Key == ConsoleKey.LeftArrow)
+                        {
+                            this.Player.Point.X--;
+                        }
+                        if (userInput.Key == ConsoleKey.RightArrow)
+                        {
+                            this.Player.Point.X++;
+                        }
+                        //print new player
+                        for (int i = 0; i < Player.LENGHT; i++)
+                        {
+                            Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
+                            Console.Write(Player.Symbol);
+                        }
                     }
+                    else if (gameObject is Block)
+                    {
+                        Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
+                        Console.Write(gameObject.Symbol);
+                    }
+
                 }
-                else if(gameObject is Block)
-                {
-                    Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
-                    Console.Write(gameObject.Symbol);
-                }
-                  
             }
-        
         }
     }
 }
