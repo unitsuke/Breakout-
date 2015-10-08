@@ -35,20 +35,28 @@ namespace Breakout
 
             //
 
-            //blocks
-            int numOfBlocks = 20;
-            for (int b = 0; b < numOfBlocks; b++)
-            {
-                GameObjects.Add(new Block(
-                    new Point((this.Width-numOfBlocks)/2 + b, 1), 1, 100));
-            }
+            
             InitializeBoard();
         }
         private void InitializeBoard()
         {
             Console.SetWindowSize(this.Width, this.Height);
             Console.SetBufferSize(this.Width, this.Height);
+            
+            //blocks
+            int numOfBlocks = 20;
+            for (int b = 0; b < numOfBlocks; b++)
+            {
+                GameObjects.Add(new Block(
+                    new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
+            }
 
+            //print block
+            foreach (var Block in GameObjects)
+            {
+                Console.SetCursorPosition(Block.Point.X, Block.Point.Y);
+                Console.Write(Block.Symbol);
+            }
             this.gameBoard = new string[this.Width, this.Height];
 
             foreach (var gameObj in this.GameObjects)
@@ -180,7 +188,7 @@ namespace Breakout
                     else if (gameObject is Block)
                     {
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
-                        Console.Write(gameObject.Symbol);
+                        Console.Write(Block.SYMBOL);
                     }
 
                 }
