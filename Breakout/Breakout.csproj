@@ -46,6 +46,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="Gamefield.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />

@@ -10,8 +10,8 @@ namespace Breakout
     {
         static void Main(string[] args)
         {
-            Engine engine = new Engine();
-            engine.Start();
+            Menu menu = new Menu();
+            menu.Start();
         }
     }
 }
