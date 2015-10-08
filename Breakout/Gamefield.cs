@@ -66,6 +66,12 @@ namespace Breakout
                 Console.SetCursorPosition(this.Width - 1, i);
                 Console.Write("|");
             }
+            //print new player
+            for (int i = 0; i < Player.LENGHT; i++)
+            {
+                Console.SetCursorPosition(this.Player.Point.X + i, this.Player.Point.Y);
+                Console.Write(Player.Symbol);
+            }
             
             
         }
