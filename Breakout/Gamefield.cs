@@ -48,12 +48,8 @@ namespace Breakout
             for (int b = 0; b < numOfBlocks; b++)
             {
                 GameObjects.Add(new Block(
-<<<<<<< HEAD
+
                     new Point((this.Width - numOfBlocks) / 2 + b, 1), 1, 100));
-=======
-                    new Point((this.Width-numOfBlocks)/2 + b, 1), 1, 100));
-                
->>>>>>> origin/master
             }
 
             //print block
@@ -104,7 +100,7 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
-                    Thread.Sleep(15);
+                    Thread.Sleep(10);
                     
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
@@ -159,7 +155,11 @@ namespace Breakout
                         Console.SetCursorPosition(this.Ball.Point.X, this.Ball.Point.Y);
                         Console.Write(this.Ball.Symbol);
                     }
-
+                    if (this.Ball.Point.X == this.Player.Point.X &&
+                        this.Ball.Point.Y == this.Player.Point.Y)
+                    {
+                        this.Ball.Direction.Y *= -1;
+                    }
                 }
                 else if (gameObject is Player)
                 {
@@ -205,10 +205,6 @@ namespace Breakout
                     {
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
                         Console.Write(Block.SYMBOL);
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
                     }
 
                 }
