@@ -101,7 +101,7 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
-                    Thread.Sleep(15);
+                    //Thread.Sleep(15);
                     
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
@@ -119,6 +119,7 @@ namespace Breakout
                     switch (nextPosChar)
                     {
                         case "#":
+
                         case "=":
 
                             this.Ball.Direction.Y *= -1;
