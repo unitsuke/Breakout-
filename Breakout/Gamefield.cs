@@ -39,6 +39,7 @@ namespace Breakout
             {
                 GameObjects.Add(new Block(
                     new Point((this.Width-numOfBlocks)/2 + b, 1), 1, 100));
+                
             }
             InitializeBoard();
         }
@@ -127,6 +128,7 @@ namespace Breakout
                         Console.Write(" ");
                     }
 
+                    
                     this.Ball.Point.X = nextX;
                     this.Ball.Point.Y = nextY;
 
@@ -154,11 +156,21 @@ namespace Breakout
                         ConsoleKeyInfo userInput = Console.ReadKey();
                         if (userInput.Key == ConsoleKey.LeftArrow)
                         {
+                            
                             this.Player.Point.X--;
+                            if (this.Player.Point.X<1)
+                            {
+                                this.Player.Point.X = 1;
+                            }
+                            
                         }
                         if (userInput.Key == ConsoleKey.RightArrow)
                         {
                             this.Player.Point.X++;
+                            if (this.Player.Point.X > Width-5)
+                            {
+                                this.Player.Point.X = Width-5;
+                            }
                         }
                         //print new player
                         for (int i = 0; i < Player.LENGHT; i++)
@@ -170,7 +182,8 @@ namespace Breakout
                     else if (gameObject is Block)
                     {
                         Console.SetCursorPosition(gameObject.Point.X, gameObject.Point.Y);
-                        Console.Write(gameObject.Symbol);
+                        Console.Write(Block.SYMBOL);
+
                     }
 
                 }
