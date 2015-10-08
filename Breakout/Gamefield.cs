@@ -33,6 +33,8 @@ namespace Breakout
                 this.Ball,
             };
 
+            //
+
             //blocks
             int numOfBlocks = 20;
             for (int b = 0; b < numOfBlocks; b++)
@@ -44,17 +46,17 @@ namespace Breakout
         }
         private void InitializeBoard()
         {
-            Console.SetWindowSize(this.Width , this.Height );
+            Console.SetWindowSize(this.Width, this.Height);
             Console.SetBufferSize(this.Width, this.Height);
 
-            this.gameBoard = new string[this.Height, this.Width];
+            this.gameBoard = new string[this.Width, this.Height];
 
             foreach (var gameObj in this.GameObjects)
             {
                 int objX = gameObj.Point.X;
                 int objY = gameObj.Point.Y;
-                // NEEDS FIX
-                //this.gameBoard[objX, objY] = gameObj.Symbol;
+                // FIXED
+                this.gameBoard[objX, objY] = gameObj.Symbol;
             }
 
             for (int i = 0; i < this.Height; i++)
@@ -83,6 +85,8 @@ namespace Breakout
             {
                 if (gameObject is Ball)
                 {
+                    Thread.Sleep(15);
+                    
                     int nextX = this.Ball.Point.X + this.Ball.Direction.X;
                     int nextY = this.Ball.Point.Y + this.Ball.Direction.Y;
 
